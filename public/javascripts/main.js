@@ -14,7 +14,8 @@ $(function() {
   window.y = 0;
   $(window).bind('devicemotion', function(event) {
     window.x = parseInt(event.originalEvent.accelerationIncludingGravity.x);
-    return window.y = parseInt(event.originalEvent.accelerationIncludingGravity.y);
+    window.y = parseInt(event.originalEvent.accelerationIncludingGravity.y);
+    return $('#count').text(window.x);
   });
   lookGyro = function() {
     return window.b_age += window.x + window.y;
@@ -25,7 +26,6 @@ $(function() {
     $('#count').text(count);
     lookGyro();
     return timer1 = setInterval(function() {
-      $('#count').text(--count);
       lookGyro();
       if (count === 0) {
         clearInterval(timer1);

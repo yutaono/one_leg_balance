@@ -17,6 +17,7 @@ $ ->
 	$(window).bind 'devicemotion', (event)->
 		window.x = parseInt(event.originalEvent.accelerationIncludingGravity.x)
 		window.y = parseInt(event.originalEvent.accelerationIncludingGravity.y)
+		$('#count').text(window.x)
 
 	lookGyro = ->
 		window.b_age += window.x + window.y
@@ -26,7 +27,7 @@ $ ->
 		$('#count').text(count)
 		lookGyro()
 		timer1 = setInterval( ->
-				$('#count').text(--count)
+				# $('#count').text(--count)
 				lookGyro()
 				if count is 0
 					clearInterval(timer1)
