@@ -16,7 +16,7 @@ $(function() {
     window.y = Math.abs(parseFloat(event.originalEvent.accelerationIncludingGravity.y));
     return window.z = Math.abs(parseFloat(event.originalEvent.accelerationIncludingGravity.z));
   });
-  window.b_age = 0;
+  window.pre_b_age = 0;
   lookGyro = function() {
     return window.pre_b_age += window.x + window.y + window.z;
   };
