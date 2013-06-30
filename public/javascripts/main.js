@@ -13,8 +13,8 @@ $(function() {
   window.x = 0;
   window.y = 0;
   $(window).bind('devicemotion', function(event) {
-    window.x = event.originalEvent.accelerationIncludingGravity.x;
-    return window.y = event.originalEvent.accelerationIncludingGravity.y;
+    window.x = parseInt(event.originalEvent.accelerationIncludingGravity.x);
+    return window.y = parseInt(event.originalEvent.accelerationIncludingGravity.y);
   });
   lookGyro = function() {
     return window.b_age += window.x + window.y;
@@ -23,9 +23,8 @@ $(function() {
     var count, timer1;
     count = 5;
     $('#count').text(count);
-    lookGyro('init');
+    lookGyro();
     return timer1 = setInterval(function() {
-      $('#count').text(--count);
       lookGyro();
       if (count === 0) {
         clearInterval(timer1);
