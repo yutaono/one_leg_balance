@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	#container
+		#top
+			//- h1= title
+			//- p please input under form
+			#count start
+
+		#bottom
+			p 年齢：
+				input#age
+			form(method="post")
+				性別：
+				input(type='radio',name="sex", value="0", checked="checked")
+				男性
+				input(type='radio',name="sex", value="1")
+				女性
+
