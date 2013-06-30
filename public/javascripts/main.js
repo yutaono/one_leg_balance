@@ -25,6 +25,7 @@ $(function() {
     $('#count').text(count);
     lookGyro();
     return timer1 = setInterval(function() {
+      $('#count').text(--count);
       lookGyro();
       if (count === 0) {
         clearInterval(timer1);
