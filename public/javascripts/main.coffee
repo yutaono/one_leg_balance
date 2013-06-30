@@ -20,14 +20,13 @@ $ ->
 	window.b_age = 0
 	lookGyro =  ->
 		window.b_age += window.x + window.y
-		$('#count').text(window.b_age)
 
 	$('#count').click ->
 		count = 5;
 		$('#count').text(count)
 		lookGyro()
 		timer1 = setInterval( ->
-				# $('#count').text(--count)
+				$('#count').text(--count)
 				lookGyro()
 				if count is 0
 					clearInterval(timer1)

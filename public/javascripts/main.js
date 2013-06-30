@@ -16,8 +16,7 @@ $(function() {
   });
   window.b_age = 0;
   lookGyro = function() {
-    window.b_age += window.x + window.y;
-    return $('#count').text(window.b_age);
+    return window.b_age += window.x + window.y;
   };
   return $('#count').click(function() {
     var count, timer1;
@@ -25,6 +24,7 @@ $(function() {
     $('#count').text(count);
     lookGyro();
     return timer1 = setInterval(function() {
+      $('#count').text(--count);
       lookGyro();
       if (count === 0) {
         clearInterval(timer1);
