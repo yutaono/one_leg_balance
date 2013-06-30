@@ -14,10 +14,10 @@ $ ->
 	window.y = 0
 
 	$(window).bind 'devicemotion', (event)->
-		window.x = parseInt(event.originalEvent.accelerationIncludingGravity.x)
-		window.y = parseInt(event.originalEvent.accelerationIncludingGravity.y)
+		window.x = parseFloat(event.originalEvent.accelerationIncludingGravity.x)
+		window.y = parseFloat(event.originalEvent.accelerationIncludingGravity.y)
 
-
+	window.b_age = 0
 	lookGyro =  ->
 		window.b_age += window.x + window.y
 		$('#count').text(window.b_age)
