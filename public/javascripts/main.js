@@ -6,17 +6,18 @@ $(function() {
     console.log('I am not iphone.');
   }
   calcBalanceAge = function() {
-    return $('#count').text('balance age: ' + window.b_age);
+    return $('#count').text('balance age: ' + window.pre_b_age);
   };
   window.x = 0;
   window.y = 0;
   $(window).bind('devicemotion', function(event) {
-    window.x = parseFloat(event.originalEvent.accelerationIncludingGravity.x);
-    return window.y = parseFloat(event.originalEvent.accelerationIncludingGravity.y);
+    window.x = Math.abs(parseFloat(event.originalEvent.accelerationIncludingGravity.x));
+    window.y = Math.abs(parseFloat(event.originalEvent.accelerationIncludingGravity.y));
+    return window.z = Math.abs(parseFloat(event.originalEvent.accelerationIncludingGravity.y));
   });
   window.b_age = 0;
   lookGyro = function() {
-    return window.b_age += window.x + window.y;
+    return window.pre_b_age += window.x + window.y + window.z;
   };
   return $('#count').click(function() {
     var count, timer1;
