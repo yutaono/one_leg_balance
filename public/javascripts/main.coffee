@@ -8,8 +8,7 @@ $ ->
 
 
 	calcBalanceAge = ->
-		balance_age = window.b_age
-		$('#count').text('balance age: '+ balance_age)
+		$('#count').text('balance age: '+ window.b_age)
 
 	window.x = 0
 	window.y = 0
@@ -17,10 +16,11 @@ $ ->
 	$(window).bind 'devicemotion', (event)->
 		window.x = parseInt(event.originalEvent.accelerationIncludingGravity.x)
 		window.y = parseInt(event.originalEvent.accelerationIncludingGravity.y)
-		$('#count').text(window.x)
 
-	lookGyro = ->
+
+	lookGyro =  ->
 		window.b_age += window.x + window.y
+		$('#count').text(window.b_age)
 
 	$('#count').click ->
 		count = 5;
